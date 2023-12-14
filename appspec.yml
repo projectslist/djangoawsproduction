@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: ./your-app-directory
     destination: /home/ubuntu/test_project
 hooks:
   BeforeInstall:
@@ -17,5 +17,8 @@ hooks:
       runas: root  
   ApplicationStart:
     - location: scripts/boot.sh
+      timeout: 300
+      runas: root
+    - location: scripts/health-check.sh  # Add a health check script if needed
       timeout: 300
       runas: root
