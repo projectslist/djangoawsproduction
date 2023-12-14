@@ -15,10 +15,17 @@ hooks:
     - location: scripts/after-install.sh
       timeout: 300
       runas: root  
+  ApplicationStop:
+    - location: scripts/ApplicationStopScript.sh
+      timeout: 300
+      runas: root
+    - location: scripts/health-check.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
     - location: scripts/boot.sh
       timeout: 300
       runas: root
-    - location: scripts/health-check.sh  # Add a health check script if needed
+    - location: scripts/health-check.sh
       timeout: 300
       runas: root
